@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitch Mockup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="twitch.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="profile"></div>
+      <div class="bell">
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Notificaciones">
+      </div>
+      <button class="modo-btn" id="modo-toggle" title="Cambiar modo">🌙</button>
+      <button class="crear-btn">+ crear</button>
+    </div>
+    <div class="stream-list"></div>
+    <div class="bottom-nav">
+      <button class="nav-btn" id="btn-siguiendo">
+        <span class="icon">
+          <!-- Corazón SVG -->
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21s-6.716-5.686-9.543-8.514C-1.857 8.086 2.243 2.5 7.5 2.5c2.485 0 4.5 2.015 4.5 4.5 0-2.485 2.015-4.5 4.5-4.5 5.257 0 9.357 5.586 5.043 10.014C18.716 15.314 12 21 12 21z" fill="#fff"/>
+          </svg>
+        </span>
+        siguiendo
+      </button>
+      <button class="nav-btn" id="btn-buscar">
+        <span class="icon">
+          <!-- Lupa SVG -->
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/>
+            <line x1="16.018" y1="16.485" x2="21" y2="21.467" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        buscar
+      </button>
+      <button class="nav-btn" id="btn-descubrir">
+        <span class="icon">
+          <!-- Exclamación SVG -->
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"/>
+            <rect x="11" y="7" width="2" height="7" rx="1" fill="#fff"/>
+            <rect x="11" y="16" width="2" height="2" rx="1" fill="#fff"/>
+          </svg>
+        </span>
+        descubrir
+      </button>
+    </div>
+  </div>
+  <script src="twitch.js"></script>
+</body>
+</html>

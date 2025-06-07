@@ -1,0 +1,900 @@
+body {
+  margin: 0;
+  background: #666;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid #222;
+  background: #666;
+  min-height: 100vh;
+  position: relative;
+}
+.header {
+  background: #29f;
+  padding: 20px 15px 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #222;
+}
+.bell {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.bell img {
+  width: 30px;
+  height: 30px;
+}
+.crear-btn {
+  background: #29f;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: auto;
+  box-shadow: 2px 2px 5px #444;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.crear-btn:hover {
+  background: #0077ff;
+}
+.stream-list {
+  padding: 20px 0 80px 0;
+}
+.stream {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 0 15px;
+}
+.stream img {
+  width: 150px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid #222;
+}
+.stream-info {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  min-width: 120px;
+  box-shadow: 1px 1px 5px #aaa;
+}
+.stream-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  color: #222;
+}
+.stream-info p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  background: #29f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -2px 10px #222;
+}
+.bottom-nav div {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  flex: 1;
+}
+.bottom-nav .icon {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 2px;
+}
+.nav-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  flex: 1;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  height: 60px;
+}
+.nav-btn:active, .nav-btn:focus {
+  background: rgba(0,0,0,0.08);
+}
+@media (max-width: 500px) {
+  .container {
+    max-width: 100vw;
+    border-radius: 0;
+    border: none;
+    min-height: 100vh;
+  }
+  .header {
+    border-radius: 0;
+    padding: 15px 8px 8px 8px;
+  }
+  .stream {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .stream img {
+    width: 95vw;
+    max-width: 350px;
+    height: 30vw;
+    max-height: 120px;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  .stream-info {
+    min-width: unset;
+    width: 95vw;
+    max-width: 350px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+  .bottom-nav {
+    width: 100vw;
+    border-radius: 0;
+    left: 0;
+    transform: none;
+    padding: 5px 0;
+  }
+  .nav-btn {
+    font-size: 14px;
+    height: 50px;
+  }
+  .icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+.stream-img-container {
+  position: relative;
+  display: inline-block;
+}
+.live-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #e53935;
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+  z-index: 2;
+}
+.stream-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+.stream-grid-item {
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stream-grid-item .stream-img-container {
+  width: 100%;
+}
+.stream-grid-item img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.categorias {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 10px 0;
+  gap: 8px;
+}
+.cat-btn {
+  background: #29f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #444;
+  transition: background 0.2s;
+}
+.cat-btn:hover {
+  background: #0077ff;
+}
+@media (max-width: 500px) {
+  .stream-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 0 2vw;
+    margin-bottom: 10px;
+  }
+  .stream-grid-item img {
+    height: 18vw;
+    min-height: 55px;
+    max-height: 80px;
+  }
+  .categorias {
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0 8px 0;
+  }
+  .cat-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 6px 0;
+  }
+}
+.barra-busqueda {
+  width: 100%;
+  background: #fff;
+  padding: 12px 15px 12px 10px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e0e0e0;
+}
+.barra-busqueda input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background: transparent;
+}
+.barra-busqueda .icono-buscar {
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.barra-busqueda .icono-buscar:hover {
+  opacity: 1;
+}
+.transmitir-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.transmitir-preview {
+  width: 90vw;
+  max-width: 340px;
+  height: 170px;
+  background: #222;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 20px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.transmitir-preview .icono-cam {
+  width: 50px;
+  height: 50px;
+  opacity: 0.4;
+}
+.transmitir-titulo {
+  width: 90vw;
+  max-width: 340px;
+  margin-bottom: 18px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.transmitir-boton {
+  width: 90vw;
+  max-width: 340px;
+  background: #29f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #444;
+  transition: background 0.2s;
+}
+.transmitir-boton:hover {
+  background: #0077ff;
+}
+.bienvenida-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+.bienvenida-avatar {
+  width: 90px;
+  height: 90px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 40px 0 20px 0;
+}
+.bienvenida-titulo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+  text-align: center;
+}
+.bienvenida-texto {
+  color: #444;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.bienvenida-btn {
+  width: 100%;
+  max-width: 320px;
+  background: #29f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #444;
+  transition: background 0.2s;
+  display: block;
+  text-align: center;
+}
+.bienvenida-btn:hover {
+  background: #0077ff;
+}
+.bienvenida-link {
+  color: #222;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  padding: 0 20px;
+}
+.login-header {
+  width: 100vw;
+  max-width: 420px;
+  background: #29f;
+  color: #fff;
+  padding: 18px 0 12px 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+.login-avatar {
+  width: 80px;
+  height: 80px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 30px 0 18px 0;
+}
+.login-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.login-form input {
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.login-btn {
+  width: 100%;
+  background: #29f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #444;
+  transition: background 0.2s;
+}
+.login-btn:hover {
+  background: #0077ff;
+}
+.login-link {
+  color: #222;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 18px;
+}
+.signup-header {
+  width: 100vw;
+  max-width: 420px;
+  background: #2196f3;
+  color: #fff;
+  padding: 22px 0 16px 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  position: relative;
+  z-index: 2;
+}
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -30px;
+  padding: 0 20px 0 20px;
+}
+.signup-avatar {
+  width: 90px;
+  height: 90px;
+  background: #d3dbe3;
+  border-radius: 50%;
+  margin: 40px 0 25px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.signup-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.signup-form input {
+  width: 100%;
+  padding: 13px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  background: #fff;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  outline: none;
+  transition: border 0.2s;
+}
+.signup-form input:focus {
+  border: 1.5px solid #2196f3;
+}
+.signup-btn {
+  width: 100%;
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #4441;
+  transition: background 0.2s;
+}
+.signup-btn:hover {
+  background: #1976d2;
+}
+.signup-link {
+  color: #222;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+@media (max-width: 500px) {
+  .signup-header {
+    font-size: 20px;
+    padding: 18px 0 12px 0;
+  }
+  .signup-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 30px 0 18px 0;
+  }
+  .signup-form {
+    max-width: 95vw;
+  }
+}
+.transmision-header {
+  width: 100%;
+  background: #2196f3;
+  border-radius: 0 0 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.transmision-barra {
+  width: 100%;
+  background: #2196f3;
+  color: #fff;
+  padding: 7px 0 7px 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.transmision-nombre {
+  font-size: 17px;
+}
+.transmision-chat {
+  background: #222;
+  padding: 0;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 12px 12px;
+}
+.chat-mensajes {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 220px;
+  padding: 10px 8px 0 8px;
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Consolas', 'monospace', Arial, sans-serif;
+}
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 7px 7px 7px 7px;
+  border-top: 1px solid #ddd;
+}
+#chat-input {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  outline: none;
+  background: #f5f5f5;
+}
+.chat-enviar-btn {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.chat-enviar-btn svg {
+  display: block;
+}
+.transmision-donar-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: #f5f5f5;
+  padding: 8px 12px 8px 0;
+}
+.donar-btn {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #4441;
+  transition: background 0.2s;
+}
+.donar-btn:hover {
+  background: #e65100;
+}
+.suscribir-btn {
+  background: #8e24aa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 1px 1px 4px #4441;
+  transition: background 0.2s;
+}
+.suscribir-btn:hover {
+  background: #5e1880;
+}
+.donacion-header {
+  width: 100vw;
+  max-width: 420px;
+  background: #2196f3;
+  color: #fff;
+  padding: 22px 0 16px 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+.donacion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+  padding: 0 20px;
+}
+.donacion-monto {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 18px;
+}
+.donacion-monto label {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 5px;
+  display: block;
+}
+.donacion-monto input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+.donacion-metodos {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 22px;
+  justify-content: center;
+}
+.metodo-pago {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: border 0.2s, background 0.2s;
+  font-size: 15px;
+}
+.metodo-pago img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
+}
+.metodo-pago.metodo-activo {
+  border: 2px solid #2196f3;
+  background: #e3f2fd;
+}
+.donacion-link {
+  color: #2196f3;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 18px;
+}
+.campo-pago {
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+.campo-pago label {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 3px;
+  display: block;
+}
+.campo-pago input {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  font-size: 15px;
+  box-sizing: border-box;
+  margin-top: 2px;
+}
+.campo-pago-flex {
+  display: flex;
+  gap: 10px;
+}
+.campo-pago-flex > div {
+  flex: 1;
+}
+.modo-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s;
+}
+.modo-btn:hover {
+  color: #ffd600;
+}
+
+/* Modo claro (por defecto) */
+body.modo-claro {
+  background: #f5f5f5;
+  color: #222;
+}
+body.modo-claro .container {
+  background: #fff;
+  border-color: #bbb;
+}
+body.modo-claro .header,
+body.modo-claro .bottom-nav,
+body.modo-claro .signup-header,
+body.modo-claro .donacion-header,
+body.modo-claro .login-header {
+  background: #2196f3;
+  color: #fff;
+}
+body.modo-claro .stream-info,
+body.modo-claro .stream-img-container,
+body.modo-claro .transmision-chat,
+body.modo-claro .chat-mensajes,
+body.modo-claro .bienvenida-titulo,
+body.modo-claro .bienvenida-texto,
+body.modo-claro .signup-form input,
+body.modo-claro .login-form input,
+body.modo-claro .donacion-monto input,
+body.modo-claro .campo-pago input,
+body.modo-claro .campo-pago label,
+body.modo-claro .donacion-monto label,
+body.modo-claro .login-link,
+body.modo-claro .signup-link,
+body.modo-claro .donacion-link {
+  color: #222;
+  background: #fff;
+}
+body.modo-claro .cat-btn,
+body.modo-claro .donar-btn,
+body.modo-claro .suscribir-btn {
+  color: #fff;
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+  background: #222;
+  color: #fff;
+}
+body.modo-oscuro .container {
+  background: #333;
+  border-color: #111;
+}
+body.modo-oscuro .header,
+body.modo-oscuro .bottom-nav,
+body.modo-oscuro .signup-header,
+body.modo-oscuro .donacion-header,
+body.modo-oscuro .login-header {
+  background: #111a2f;
+  color: #fff;
+}
+body.modo-oscuro .stream-info,
+body.modo-oscuro .stream-img-container,
+body.modo-oscuro .transmision-chat,
+body.modo-oscuro .chat-mensajes,
+body.modo-oscuro .bienvenida-titulo,
+body.modo-oscuro .bienvenida-texto,
+body.modo-oscuro .signup-form input,
+body.modo-oscuro .login-form input,
+body.modo-oscuro .donacion-monto input,
+body.modo-oscuro .campo-pago input,
+body.modo-oscuro .campo-pago label,
+body.modo-oscuro .donacion-monto label,
+body.modo-oscuro .login-link,
+body.modo-oscuro .signup-link,
+body.modo-oscuro .donacion-link {
+  color: #fff;
+  background: #222;
+}
+body.modo-oscuro .cat-btn,
+body.modo-oscuro .donar-btn,
+body.modo-oscuro .suscribir-btn {
+  color: #fff;
+}
+body.modo-oscuro .chat-input-bar {
+  background: #333;
+}
+body.modo-claro .chat-input-bar {
+  background: #f5f5f5;
+}
+
+/* Nombres de usuario en el chat */
+.chat-nombre {
+  font-weight: bold;
+  color: inherit; /* Hereda el color según el modo */
+}
+
+/* Mensajes del chat */
+.chat-mensaje {
+  color: inherit; /* Hereda el color según el modo */
+}
+
+/* Ejemplo para otros textos dinámicos */
+.titulo-dinamico, .texto-dinamico {
+  color: inherit;
+}
+
+body.modo-oscuro, body.modo-oscuro .chat-mensaje, body.modo-oscuro .chat-nombre { color: #fff; }
+body.modo-claro, body.modo-claro .chat-mensaje, body.modo-claro .chat-nombre { color: #222; }
+
+.stream-nombre, .stream-descripcion {
+  color: inherit;
+}
+body.modo-claro .stream-nombre, body.modo-claro .stream-descripcion {
+  color: #222;
+}
+body.modo-oscuro .stream-nombre, body.modo-oscuro .stream-descripcion {
+  color: #fff;
+} 
